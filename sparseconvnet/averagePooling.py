@@ -30,8 +30,8 @@ class AveragePooling(Module):
         output.metadata = input.metadata
         output.spatial_size = (
             input.spatial_size - self.pool_size) // self.pool_stride + 1
-        assert ((output.spatial_size - 1) * self.pool_stride +
-                self.pool_size == input.spatial_size).all()
+        # assert ((output.spatial_size - 1) * self.pool_stride +
+        #         self.pool_size == input.spatial_size).all()
         output.features = AveragePoolingFunction.apply(
             input.features,
             input.metadata,
